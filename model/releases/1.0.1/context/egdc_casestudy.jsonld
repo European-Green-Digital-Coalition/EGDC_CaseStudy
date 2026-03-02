@@ -1,0 +1,194 @@
+{
+  "@context": {
+    "Address": "http://www.w3.org/ns/locn#Address",
+    "Benefit": "https://www.greendigitalcoalition.eu/model/Benefit",
+    "Benefit.name": {
+      "@id": "http://purl.org/dc/terms/type",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "CaseStudy": "https://www.greendigitalcoalition.eu/model/CaseStudy",
+    "CaseStudy.name": {
+      "@id": "http://purl.org/dc/terms/title",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "Code": "http://www.w3.org/2004/02/skos/core#Concept",
+    "ContactPoint": "http://data.europa.eu/m8g/ContactPoint",
+    "ContactPoint.name": {
+      "@id": "http://purl.org/dc/terms/title",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "Dataset": "http://www.w3.org/ns/dcat#Dataset",
+    "Dataset.name": {
+      "@id": "http://purl.org/dc/terms/title",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "Dataset.url": {
+      "@id": "http://xmlns.com/foaf/0.1/page",
+      "@type": "@id"
+    },
+    "Date": "http://www.w3.org/2001/XMLSchema#date",
+    "Document": "http://xmlns.com/foaf/0.1/Document",
+    "EnvironmentalBenefit": "https://www.greendigitalcoalition.eu/model/EnvironmentalBenefit",
+    "ImageObject": "http://data.europa.eu/m8g/ImageObject",
+    "ImageObject.name": {
+      "@id": "http://purl.org/dc/terms/title",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "ImageObject.url": {
+      "@id": "https://www.greendigitalcoalition.eu/model/url",
+      "@type": "@id"
+    },
+    "Integer": "http://www.w3.org/2001/XMLSchema#integer",
+    "LinguisticSystem": "http://purl.org/dc/terms/LinguisticSystem",
+    "Location": "http://purl.org/dc/terms/Location",
+    "Methodology": "https://www.greendigitalcoalition.eu/model/Methodology",
+    "Methodology.name": {
+      "@id": "http://purl.org/dc/terms/title",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "Methodology.url": {
+      "@id": "http://xmlns.com/foaf/0.1/page",
+      "@type": "@id"
+    },
+    "Organization": "http://www.w3.org/ns/org#Organization",
+    "Organization.name": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "Person": "http://www.w3.org/ns/person#Person",
+    "String": "http://www.w3.org/2001/XMLSchema#string",
+    "Text": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+    "address": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/locn#address",
+      "@type": "@id"
+    },
+    "adminUnitL1": {
+      "@id": "http://www.w3.org/ns/locn#adminUnitL1",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "contactPoint": {
+      "@id": "http://data.europa.eu/m8g/contactPoint",
+      "@type": "@id"
+    },
+    "created": {
+      "@id": "http://purl.org/dc/terms/created",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "creator": {
+      "@id": "http://purl.org/dc/terms/creator",
+      "@type": "@id"
+    },
+    "description": {
+      "@id": "http://purl.org/dc/terms/description",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "familyName": {
+      "@id": "http://xmlns.com/foaf/0.1/familyName",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "fundingType": {
+      "@id": "https://www.greendigitalcoalition.eu/model/fundingType",
+      "@type": "@id"
+    },
+    "givenName": {
+      "@id": "http://xmlns.com/foaf/0.1/givenName",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "hasBenefit": {
+      "@container": "@set",
+      "@id": "https://www.greendigitalcoalition.eu/model/hasBenefit",
+      "@type": "@id"
+    },
+    "hasDataset": {
+      "@id": "https://www.greendigitalcoalition.eu/model/hasDataset",
+      "@type": "@id"
+    },
+    "hasEmail": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/m8g/email",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasMethodology": {
+      "@id": "https://www.greendigitalcoalition.eu/model/hasMethodology",
+      "@type": "@id"
+    },
+    "isFundedBy": {
+      "@container": "@set",
+      "@id": "https://www.greendigitalcoalition.eu/model/isFundedBy",
+      "@type": "@id"
+    },
+    "isProvidedBy": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/creator",
+      "@type": "@id"
+    },
+    "isUsedBy": {
+      "@container": "@set",
+      "@id": "https://www.greendigitalcoalition.eu/model/isUsedBy",
+      "@type": "@id"
+    },
+    "issued": {
+      "@id": "http://purl.org/dc/terms/issued",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "language": {
+      "@id": "http://purl.org/dc/terms/language",
+      "@type": "@id"
+    },
+    "logo": {
+      "@id": "http://data.europa.eu/m8g/logo",
+      "@type": "@id"
+    },
+    "longDescription": {
+      "@id": "https://www.greendigitalcoalition.eu/model/longDescription",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "postName": {
+      "@id": "http://www.w3.org/ns/locn#postName",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "problemSolved": {
+      "@id": "https://www.greendigitalcoalition.eu/model/problemSolved",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "sector": {
+      "@id": "https://www.greendigitalcoalition.eu/model/sector",
+      "@type": "@id"
+    },
+    "shortDescription": {
+      "@id": "http://purl.org/dc/terms/description",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "subSector": {
+      "@container": "@set",
+      "@id": "https://www.greendigitalcoalition.eu/model/subSector",
+      "@type": "@id"
+    },
+    "technology": {
+      "@id": "https://www.greendigitalcoalition.eu/model/technology",
+      "@type": "@id"
+    },
+    "type": {
+      "@id": "http://purl.org/dc/terms/type",
+      "@type": "@id"
+    },
+    "typeOfCalculation": {
+      "@id": "https://www.greendigitalcoalition.eu/model/typeOfCalculation",
+      "@type": "@id"
+    },
+    "unit": {
+      "@id": "https://www.greendigitalcoalition.eu/model/unit",
+      "@type": "@id"
+    },
+    "value": {
+      "@id": "https://www.greendigitalcoalition.eu/model/value",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "websiteUrl": {
+      "@id": "http://xmlns.com/foaf/0.1/page",
+      "@type": "@id"
+    }
+  }
+}
