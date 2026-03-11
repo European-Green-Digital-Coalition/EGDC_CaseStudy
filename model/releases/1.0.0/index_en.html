@@ -54,11 +54,11 @@
 	};
 	var shaclfilepath = "shacl/egdc_casestudy-SHACL.ttl" ;
 	var folder = "./html/examples/";
-	var model = "mldcat-ap" ;
+	var model = "any" ;
 	var version_list = [
 		{
-		"type": "v3.0.0",
-		"description": "MLDCAT-AP 3.0.0"
+		"type": "v1.0.1",
+		"description": "EGDC Case Study 1.0.1"
 		}
 	] ;
 	var linkinfo = "https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0" + "#validation" ;
@@ -225,6 +225,7 @@ This specification uses the following prefixes to shorten the URIs for readabili
 <table id="table-namespaces" class="simple">
 	<thead><tr><th>Prefix</th><th>Namespace IRI</th></tr></thead>
 	<tbody>
+		<tr><td><code>adms</code></td><td><code>http://www.w3.org/ns/adms#</code></td></tr>
 		<tr><td><code>cv</code></td><td><code>http://data.europa.eu/m8g/</code></td></tr>
 		<tr><td><code>dcat</code></td><td><code>http://www.w3.org/ns/dcat#</code></td></tr>
 		<tr><td><code>dct</code></td><td><code>http://purl.org/dc/terms/</code></td></tr>
@@ -262,7 +263,6 @@ This specification uses the following prefixes to shorten the URIs for readabili
                             The main entities are supported by:
                             <br />
                             |
-			      <a href="#"></a> |
 			      <a href="#Address">Address</a> |
 			      <a href="#Benefit">Benefit</a> |
 			      <a href="#ContactPoint">Contact Point</a> |
@@ -273,6 +273,7 @@ This specification uses the following prefixes to shorten the URIs for readabili
 			      <a href="#LinguisticSystem">Linguistic System</a> |
 			      <a href="#Location">Location</a> |
 			      <a href="#Methodology">Methodology</a> |
+			      <a href="#OnlineAccount">OnlineAccount</a> |
 			      <a href="#Organization">Organization</a> |
                         </p>
                 
@@ -280,7 +281,7 @@ This specification uses the following prefixes to shorten the URIs for readabili
                         <p>
                             And supported by these datatypes:
                             <br />
-                            | <a href="#Code">Code</a> | <a href="#Date">Date</a> | <a href="#Integer">Integer</a> | <a href="#String">String</a> | <a href="#Text">Text</a> |
+                            | <a href="#Code">Code</a> | <a href="#Date">Date</a> | <a href="#Integer">Integer</a> | <a href="#String">String</a> | <a href="#Text">Text</a> | <a href="#URI">URI</a> |
                         </p>
                 
     </div>
@@ -304,8 +305,6 @@ This specification uses the following prefixes to shorten the URIs for readabili
 The main entities are those that form the core of the Application Profile.
 The properties and their associated constraints that apply in the context of this profile are listed in a tabular form.
 Each row corresponds to one property. 
-
-
 
 
 
@@ -346,10 +345,12 @@ Each row corresponds to one property.
                             For this entity the following properties are defined: <a href="#CaseStudy.address">address</a>
                             , <a href="#CaseStudy.created">created</a>
                             , <a href="#CaseStudy.creator">creator</a>
+                            , <a href="#CaseStudy.fundingprogrammeurl">funding programme url</a>
                             , <a href="#CaseStudy.fundingtype">funding type</a>
                             , <a href="#CaseStudy.hasbenefit">has benefit</a>
-                            , <a href="#CaseStudy.hasbenefit">has benefit</a>
                             , <a href="#CaseStudy.hasdataset">has dataset</a>
+                            , <a href="#CaseStudy.hasdocument">has document</a>
+                            , <a href="#CaseStudy.hasenvironmentalbenefit">has environmental benefit</a>
                             , <a href="#CaseStudy.hasmethodology">has methodology</a>
                             , <a href="#CaseStudy.isfundedby">is funded by</a>
                             , <a href="#CaseStudy.isprovidedby">is provided by</a>
@@ -358,10 +359,12 @@ Each row corresponds to one property.
                             , <a href="#CaseStudy.language">language</a>
                             , <a href="#CaseStudy.logo">logo</a>
                             , <a href="#CaseStudy.longdescription">long description</a>
+                            , <a href="#CaseStudy.name">name</a>
                             , <a href="#CaseStudy.problemsolved">problem solved</a>
+                            , <a href="#CaseStudy.rejectioncomment">rejection comment</a>
                             , <a href="#CaseStudy.shortdescription">short description</a>
+                            , <a href="#CaseStudy.status">status</a>
                             , <a href="#CaseStudy.technology">technology</a>
-                            , <a href="#CaseStudy.title">title</a>
                             , <a href="#CaseStudy.typeofcalculation">type of calculation</a>
                             .
                     </dd>
@@ -474,7 +477,7 @@ Each row corresponds to one property.
                                     
                                 </td>
                                 <td>
-                                    1
+                                    0..1
                                 </td>
                                 <td property="rdfs:comment">
                                     Date of creation of the resource.
@@ -515,7 +518,7 @@ Each row corresponds to one property.
                                 <td>
                                     
                                         
-                                            <a href="#Person" data-placement="right">Person</a>
+                                            <a href="#OnlineAccount" data-placement="right">OnlineAccount</a>
                                         
                                     
                                 </td>
@@ -524,6 +527,52 @@ Each row corresponds to one property.
                                 </td>
                                 <td property="rdfs:comment">
                                     An entity responsible for making the resource.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="CaseStudy.fundingprogrammeurl"
+                                typeof="rdf:Property"
+                                resource="https://www.greendigitalcoalition.eu/model/fundingProgrammeUrl"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20funding programme url%20in%20Case Study&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23CaseStudy.fundingprogrammeurl" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="https://www.greendigitalcoalition.eu/model/fundingProgrammeUrl"
+                                           data-toggle="tooltip"
+                                           data-content="https://www.greendigitalcoalition.eu/model/fundingProgrammeUrl"
+                                           data-placement="right">
+                                        funding programme url</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#URI" data-placement="right">URI</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..1
+                                </td>
+                                <td property="rdfs:comment">
+                                    The url of the funding programme.
                                 </td>
                                 <td property="skos:scopeNote">
                                     
@@ -572,53 +621,7 @@ Each row corresponds to one property.
                                     The type of financing of the Case Study.
                                 </td>
                                 <td property="skos:scopeNote">
-                                    
-                                </td>
-				<!--
-                                <td>
-                                    
-                                </td>
-				-->
-                                <td>
-                                    
-                                    
-                                        No references available.
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr id="CaseStudy.hasbenefit"
-                                typeof="rdf:Property"
-                                resource="https://www.greendigitalcoalition.eu/model/hasBenefit"
-                                class="class mandatory">
-                                <td>
-				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20has benefit%20in%20Case Study&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23CaseStudy.hasbenefit" target="_blank" rel="noopener noreferrer" >
-					    <!--                                        <i class="icon">[o]</i> -->
-                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
-                                    </a>
-                                </td>
-                                <td>
-                                        <a href="https://www.greendigitalcoalition.eu/model/hasBenefit"
-                                           data-toggle="tooltip"
-                                           data-content="https://www.greendigitalcoalition.eu/model/hasBenefit"
-                                           data-placement="right">
-                                        has benefit</a>
-                                </td>
-                                <td>
-                                    
-                                        
-                                            <a href="#EnvironmentalBenefit" data-placement="right">Environmental Benefit</a>
-                                        
-                                    
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td property="rdfs:comment">
-                                    The benefit measured by the case study.
-                                </td>
-                                <td property="skos:scopeNote">
-                                    
+                                    The recommended code list is <a hred="#cs-funding">Case Study - Funding Type</a>.
                                 </td>
 				<!--
                                 <td>
@@ -708,6 +711,98 @@ Each row corresponds to one property.
                                 </td>
                                 <td property="rdfs:comment">
                                     The dataset attached to the Case Study.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="CaseStudy.hasdocument"
+                                typeof="rdf:Property"
+                                resource="https://www.greendigitalcoalition.eu/model/hasDocument"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20has document%20in%20Case Study&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23CaseStudy.hasdocument" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="https://www.greendigitalcoalition.eu/model/hasDocument"
+                                           data-toggle="tooltip"
+                                           data-content="https://www.greendigitalcoalition.eu/model/hasDocument"
+                                           data-placement="right">
+                                        has document</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#Document" data-placement="right">Document</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..*
+                                </td>
+                                <td property="rdfs:comment">
+                                    A document providing additional information to the Case Study.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="CaseStudy.hasenvironmentalbenefit"
+                                typeof="rdf:Property"
+                                resource="https://www.greendigitalcoalition.eu/model/hasEnvironmentalBenefit"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20has environmental benefit%20in%20Case Study&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23CaseStudy.hasenvironmentalbenefit" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="https://www.greendigitalcoalition.eu/model/hasEnvironmentalBenefit"
+                                           data-toggle="tooltip"
+                                           data-content="https://www.greendigitalcoalition.eu/model/hasEnvironmentalBenefit"
+                                           data-placement="right">
+                                        has environmental benefit</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#EnvironmentalBenefit" data-placement="right">Environmental Benefit</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1..*
+                                </td>
+                                <td property="rdfs:comment">
+                                    The benefit measured by the case study.
                                 </td>
                                 <td property="skos:scopeNote">
                                     
@@ -819,7 +914,7 @@ Each row corresponds to one property.
                         
                             <tr id="CaseStudy.isprovidedby"
                                 typeof="rdf:Property"
-                                resource="http://purl.org/dc/terms/creator"
+                                resource="https://www.greendigitalcoalition.eu/model/isProvidedBy"
                                 class="class mandatory">
                                 <td>
 				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20is provided by%20in%20Case Study&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23CaseStudy.isprovidedby" target="_blank" rel="noopener noreferrer" >
@@ -828,9 +923,9 @@ Each row corresponds to one property.
                                     </a>
                                 </td>
                                 <td>
-                                        <a href="http://purl.org/dc/terms/creator"
+                                        <a href="https://www.greendigitalcoalition.eu/model/isProvidedBy"
                                            data-toggle="tooltip"
-                                           data-content="http://purl.org/dc/terms/creator"
+                                           data-content="https://www.greendigitalcoalition.eu/model/isProvidedBy"
                                            data-placement="right">
                                         is provided by</a>
                                 </td>
@@ -1072,10 +1167,56 @@ Each row corresponds to one property.
                                     
                                 </td>
                                 <td>
-                                    1
+                                    0..1
                                 </td>
                                 <td property="rdfs:comment">
                                     An extended description of the Case Study.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="CaseStudy.name"
+                                typeof="rdf:Property"
+                                resource="http://purl.org/dc/terms/title"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20name%20in%20Case Study&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23CaseStudy.name" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="http://purl.org/dc/terms/title"
+                                           data-toggle="tooltip"
+                                           data-content="http://purl.org/dc/terms/title"
+                                           data-placement="right">
+                                        name</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#Text" data-placement="right">Text</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..1
+                                </td>
+                                <td property="rdfs:comment">
+                                    A name given to the Case Study.
                                 </td>
                                 <td property="skos:scopeNote">
                                     
@@ -1118,10 +1259,56 @@ Each row corresponds to one property.
                                     
                                 </td>
                                 <td>
-                                    1
+                                    0..1
                                 </td>
                                 <td property="rdfs:comment">
                                     The type of challenge the Case Study resolved.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="CaseStudy.rejectioncomment"
+                                typeof="rdf:Property"
+                                resource="https://www.greendigitalcoalition.eu/model/rejectionComment"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20rejection comment%20in%20Case Study&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23CaseStudy.rejectioncomment" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="https://www.greendigitalcoalition.eu/model/rejectionComment"
+                                           data-toggle="tooltip"
+                                           data-content="https://www.greendigitalcoalition.eu/model/rejectionComment"
+                                           data-placement="right">
+                                        rejection comment</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#Text" data-placement="right">Text</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..1
+                                </td>
+                                <td property="rdfs:comment">
+                                    The comment in case the CaseStudy is rejected.
                                 </td>
                                 <td property="skos:scopeNote">
                                     
@@ -1164,13 +1351,59 @@ Each row corresponds to one property.
                                     
                                 </td>
                                 <td>
-                                    1
+                                    0..1
                                 </td>
                                 <td property="rdfs:comment">
                                     An account of the Case Study.
                                 </td>
                                 <td property="skos:scopeNote">
                                     
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="CaseStudy.status"
+                                typeof="rdf:Property"
+                                resource="http://www.w3.org/ns/adms#status"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20status%20in%20Case Study&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23CaseStudy.status" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="http://www.w3.org/ns/adms#status"
+                                           data-toggle="tooltip"
+                                           data-content="http://www.w3.org/ns/adms#status"
+                                           data-placement="right">
+                                        status</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#Code" data-placement="right">Code</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td property="rdfs:comment">
+                                    The status of the Case Study.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    The recommended code list is <a hred="#cs-status">Case Study - Status</a>.
                                 </td>
 				<!--
                                 <td>
@@ -1210,59 +1443,13 @@ Each row corresponds to one property.
                                     
                                 </td>
                                 <td>
-                                    1
+                                    0..1
                                 </td>
                                 <td property="rdfs:comment">
                                     The type of equipment used by the Case Study.
                                 </td>
                                 <td property="skos:scopeNote">
-                                    
-                                </td>
-				<!--
-                                <td>
-                                    
-                                </td>
-				-->
-                                <td>
-                                    
-                                    
-                                        No references available.
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr id="CaseStudy.title"
-                                typeof="rdf:Property"
-                                resource="http://purl.org/dc/terms/title"
-                                class="class mandatory">
-                                <td>
-				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20title%20in%20Case Study&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23CaseStudy.title" target="_blank" rel="noopener noreferrer" >
-					    <!--                                        <i class="icon">[o]</i> -->
-                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
-                                    </a>
-                                </td>
-                                <td>
-                                        <a href="http://purl.org/dc/terms/title"
-                                           data-toggle="tooltip"
-                                           data-content="http://purl.org/dc/terms/title"
-                                           data-placement="right">
-                                        title</a>
-                                </td>
-                                <td>
-                                    
-                                        
-                                            <a href="#Text" data-placement="right">Text</a>
-                                        
-                                    
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td property="rdfs:comment">
-                                    A name given to the Case Study.
-                                </td>
-                                <td property="skos:scopeNote">
-                                    
+                                    The recommended code list is <a hred="#cs-technology">Case Study - Technology</a>.
                                 </td>
 				<!--
                                 <td>
@@ -1302,13 +1489,13 @@ Each row corresponds to one property.
                                     
                                 </td>
                                 <td>
-                                    1
+                                    0..1
                                 </td>
                                 <td property="rdfs:comment">
                                     The Type of computation used for the Case Study.
                                 </td>
                                 <td property="skos:scopeNote">
-                                    
+                                    The recommended code list is <a hred="#cs-calculation">Case Study - Type of Calculation</a>.
                                 </td>
 				<!--
                                 <td>
@@ -1329,6 +1516,8 @@ Each row corresponds to one property.
         
     </div>
 </section>
+
+
 
 
 
@@ -1359,228 +1548,6 @@ Each row corresponds to one property.
 </h2>
 The supportive entities are supporting the main entities in the Application Profile. 
 They are included in the Application Profile because they form the range of properties.
-
-
-
-
-   
-        <section>
-            <h3 id="">
-                <a href="http://www.w3.org/ns/person#Person"
-                   data-toggle="tooltip"
-                   data-content="http://www.w3.org/ns/person#Person"
-                   data-placement="right"></a>
-
-            </h3>
-	        <!-- XXX an image in the h3 will break the rendering of the Table Of Contents of Respec -->
-		<!-- outcomment github feedback possibility
-                <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20&body=Explain%20your%20issue"}}>
-                   <img src="html/callout.png" loading="lazy" alt="(create issue)" width="20" height="20"/>
-		</a>
-		-->
-            <dl>
-                <dt>
-                    Definition
-                </dt>
-                <dd>
-                    
-                </dd>
-                
-                
-                
-                    <dt>
-                        Properties
-                    </dt>
-                    
-                        <dd>
-                            For this entity the following properties are defined: <a href="#undefined.contactpoint">contact point</a>
-                            , <a href="#undefined.familyname">family name</a>
-                            , <a href="#undefined.givenname">given name</a>
-                            .
-                    </dd>
-                
-            </dl>
-        </div>
-        
-            <div class="u-table-overflow">
-                <table class="data-table simple" id="table-mandatory-classes">
-                    <thead>
-                        <tr class="data-table__header">
-                            <th class="data-table__header-title--sortable" style="width:6%">
-                            </th>
-                            <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:14%">
-                                Property
-                            </th>
-                            <th class="data-table__header-title--sortable" style="width:14%">
-                                Range
-                            </th>
-                            <th class="data-table__header-title--sortable" style="width:6%">
-                                Card
-                            </th>
-                            <th class="data-table__header-title--sortable" style="width:30%">
-                                Definition 
-                            </th>
-                            <th class="data-table__header-title--sortable" style="width:30%">
-                                Usage
-                            </th>
-			    <!--
-                            <th class="data-table__header-title--sortable" style="width:3%">
-                                Codelist
-                            </th>
-				-->
-                            <th class="data-table__header-title--sortable" style="width:5%">
-                                REF
-                            </th>
-			    
-                        </tr>
-                    </thead>
-                    <tbody class="supertype">
-                        
-                            <tr id="undefined.contactpoint"
-                                typeof="rdf:Property"
-                                resource="http://data.europa.eu/m8g/contactPoint"
-                                class="class mandatory">
-                                <td>
-				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20contact point%20in%20&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23undefined.contactpoint" target="_blank" rel="noopener noreferrer" >
-					    <!--                                        <i class="icon">[o]</i> -->
-                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
-                                    </a>
-                                </td>
-                                <td>
-                                        <a href="http://data.europa.eu/m8g/contactPoint"
-                                           data-toggle="tooltip"
-                                           data-content="http://data.europa.eu/m8g/contactPoint"
-                                           data-placement="right">
-                                        contact point</a>
-                                </td>
-                                <td>
-                                    
-                                        
-                                            <a href="#ContactPoint" data-placement="right">Contact Point</a>
-                                        
-                                    
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td property="rdfs:comment">
-                                    The main contact information of the resource.
-                                </td>
-                                <td property="skos:scopeNote">
-                                    
-                                </td>
-				<!--
-                                <td>
-                                    
-                                </td>
-				-->
-                                <td>
-                                    
-                                    
-                                        No references available.
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr id="undefined.familyname"
-                                typeof="rdf:Property"
-                                resource="http://xmlns.com/foaf/0.1/familyName"
-                                class="class mandatory">
-                                <td>
-				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20family name%20in%20&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23undefined.familyname" target="_blank" rel="noopener noreferrer" >
-					    <!--                                        <i class="icon">[o]</i> -->
-                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
-                                    </a>
-                                </td>
-                                <td>
-                                        <a href="http://xmlns.com/foaf/0.1/familyName"
-                                           data-toggle="tooltip"
-                                           data-content="http://xmlns.com/foaf/0.1/familyName"
-                                           data-placement="right">
-                                        family name</a>
-                                </td>
-                                <td>
-                                    
-                                        
-                                            <a href="#Text" data-placement="right">Text</a>
-                                        
-                                    
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td property="rdfs:comment">
-                                    The hereditary surname of a family.
-                                </td>
-                                <td property="skos:scopeNote">
-                                    
-                                </td>
-				<!--
-                                <td>
-                                    
-                                </td>
-				-->
-                                <td>
-                                    
-                                    
-                                        No references available.
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr id="undefined.givenname"
-                                typeof="rdf:Property"
-                                resource="http://xmlns.com/foaf/0.1/givenName"
-                                class="class mandatory">
-                                <td>
-				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20given name%20in%20&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23undefined.givenname" target="_blank" rel="noopener noreferrer" >
-					    <!--                                        <i class="icon">[o]</i> -->
-                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
-                                    </a>
-                                </td>
-                                <td>
-                                        <a href="http://xmlns.com/foaf/0.1/givenName"
-                                           data-toggle="tooltip"
-                                           data-content="http://xmlns.com/foaf/0.1/givenName"
-                                           data-placement="right">
-                                        given name</a>
-                                </td>
-                                <td>
-                                    
-                                        
-                                            <a href="#Text" data-placement="right">Text</a>
-                                        
-                                    
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td property="rdfs:comment">
-                                    The name(s) that identify the Person within a family with a common surname.
-                                </td>
-                                <td property="skos:scopeNote">
-                                    
-                                </td>
-				<!--
-                                <td>
-                                    
-                                </td>
-				-->
-                                <td>
-                                    
-                                    
-                                        No references available.
-                                    
-                                </td>
-                            </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
-        
-    </div>
-</section>
-
 
 
 
@@ -1790,7 +1757,8 @@ They are included in the Application Profile because they form the range of prop
                     </dt>
                     
                         <dd>
-                            For this entity the following properties are defined: <a href="#Benefit.type">type</a>
+                            For this entity the following properties are defined: <a href="#Benefit.functionalunit">functional unit</a>
+                            , <a href="#Benefit.name">name</a>
                             , <a href="#Benefit.type">type</a>
                             , <a href="#Benefit.unit">unit</a>
                             , <a href="#Benefit.value">value</a>
@@ -1834,22 +1802,68 @@ They are included in the Application Profile because they form the range of prop
                     </thead>
                     <tbody class="supertype">
                         
-                            <tr id="Benefit.type"
+                            <tr id="Benefit.functionalunit"
                                 typeof="rdf:Property"
-                                resource="http://purl.org/dc/terms/type"
+                                resource="https://www.greendigitalcoalition.eu/model/functionalUnit"
                                 class="class mandatory">
                                 <td>
-				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20type%20in%20Benefit&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Benefit.type" target="_blank" rel="noopener noreferrer" >
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20functional unit%20in%20Benefit&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Benefit.functionalunit" target="_blank" rel="noopener noreferrer" >
 					    <!--                                        <i class="icon">[o]</i> -->
                                         <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
                                     </a>
                                 </td>
                                 <td>
-                                        <a href="http://purl.org/dc/terms/type"
+                                        <a href="https://www.greendigitalcoalition.eu/model/functionalUnit"
                                            data-toggle="tooltip"
-                                           data-content="http://purl.org/dc/terms/type"
+                                           data-content="https://www.greendigitalcoalition.eu/model/functionalUnit"
                                            data-placement="right">
-                                        type</a>
+                                        functional unit</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#String" data-placement="right">String</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..*
+                                </td>
+                                <td property="rdfs:comment">
+                                    The functional unit indicated in the Benefit.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="Benefit.name"
+                                typeof="rdf:Property"
+                                resource="http://purl.org/dc/terms/title"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20name%20in%20Benefit&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Benefit.name" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="http://purl.org/dc/terms/title"
+                                           data-toggle="tooltip"
+                                           data-content="http://purl.org/dc/terms/title"
+                                           data-placement="right">
+                                        name</a>
                                 </td>
                                 <td>
                                     
@@ -1862,7 +1876,7 @@ They are included in the Application Profile because they form the range of prop
                                     1
                                 </td>
                                 <td property="rdfs:comment">
-                                    The classification given to a Benefit.
+                                    The name of the Benefit.
                                 </td>
                                 <td property="skos:scopeNote">
                                     
@@ -1911,7 +1925,7 @@ They are included in the Application Profile because they form the range of prop
                                     The type of benefit.
                                 </td>
                                 <td property="skos:scopeNote">
-                                    
+                                    The recommended code list is <a hred="be-type">Benefit - Type</a>.
                                 </td>
 				<!--
                                 <td>
@@ -1957,7 +1971,7 @@ They are included in the Application Profile because they form the range of prop
                                     The unit of the amount value.
                                 </td>
                                 <td property="skos:scopeNote">
-                                    
+                                    The recommended code list is <a hred="be-unit">Benefit - Unit</a>.
                                 </td>
 				<!--
                                 <td>
@@ -2174,7 +2188,7 @@ They are included in the Application Profile because they form the range of prop
                                     
                                 </td>
                                 <td>
-                                    0..1
+                                    1
                                 </td>
                                 <td property="rdfs:comment">
                                     A name given to the ContactPoint.
@@ -2281,7 +2295,7 @@ They are included in the Application Profile because they form the range of prop
                         
                             <tr id="Dataset.landingpage"
                                 typeof="rdf:Property"
-                                resource="http://xmlns.com/foaf/0.1/page"
+                                resource="https://www.greendigitalcoalition.eu/model/url"
                                 class="class mandatory">
                                 <td>
 				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20landing page%20in%20Dataset&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Dataset.landingpage" target="_blank" rel="noopener noreferrer" >
@@ -2290,16 +2304,16 @@ They are included in the Application Profile because they form the range of prop
                                     </a>
                                 </td>
                                 <td>
-                                        <a href="http://xmlns.com/foaf/0.1/page"
+                                        <a href="https://www.greendigitalcoalition.eu/model/url"
                                            data-toggle="tooltip"
-                                           data-content="http://xmlns.com/foaf/0.1/page"
+                                           data-content="https://www.greendigitalcoalition.eu/model/url"
                                            data-placement="right">
                                         landing page</a>
                                 </td>
                                 <td>
                                     
                                         
-                                            <a href="#Document" data-placement="right">Document</a>
+                                            <a href="#URI" data-placement="right">URI</a>
                                         
                                     
                                 </td>
@@ -2457,12 +2471,238 @@ They are included in the Application Profile because they form the range of prop
                         Properties
                     </dt>
                     
-                    <dd>
-                        This specification does not impose any additional requirements to properties for this entity.
+                        <dd>
+                            For this entity the following properties are defined: <a href="#Document.description">description</a>
+                            , <a href="#Document.language">language</a>
+                            , <a href="#Document.name">name</a>
+                            , <a href="#Document.url">url</a>
+                            .
                     </dd>
                 
             </dl>
         </div>
+        
+            <div class="u-table-overflow">
+                <table class="data-table simple" id="table-mandatory-classes">
+                    <thead>
+                        <tr class="data-table__header">
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                            </th>
+                            <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:14%">
+                                Property
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:14%">
+                                Range
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                                Card
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Definition 
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Usage
+                            </th>
+			    <!--
+                            <th class="data-table__header-title--sortable" style="width:3%">
+                                Codelist
+                            </th>
+				-->
+                            <th class="data-table__header-title--sortable" style="width:5%">
+                                REF
+                            </th>
+			    
+                        </tr>
+                    </thead>
+                    <tbody class="supertype">
+                        
+                            <tr id="Document.description"
+                                typeof="rdf:Property"
+                                resource="http://purl.org/dc/terms/description"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20description%20in%20Document&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Document.description" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="http://purl.org/dc/terms/description"
+                                           data-toggle="tooltip"
+                                           data-content="http://purl.org/dc/terms/description"
+                                           data-placement="right">
+                                        description</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#Text" data-placement="right">Text</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..1
+                                </td>
+                                <td property="rdfs:comment">
+                                    An account of the Document.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="Document.language"
+                                typeof="rdf:Property"
+                                resource="http://purl.org/dc/terms/language"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20language%20in%20Document&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Document.language" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="http://purl.org/dc/terms/language"
+                                           data-toggle="tooltip"
+                                           data-content="http://purl.org/dc/terms/language"
+                                           data-placement="right">
+                                        language</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#LinguisticSystem" data-placement="right">Linguistic System</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    0..1
+                                </td>
+                                <td property="rdfs:comment">
+                                    The language of the Document.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="Document.name"
+                                typeof="rdf:Property"
+                                resource="http://purl.org/dc/terms/title"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20name%20in%20Document&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Document.name" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="http://purl.org/dc/terms/title"
+                                           data-toggle="tooltip"
+                                           data-content="http://purl.org/dc/terms/title"
+                                           data-placement="right">
+                                        name</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#Text" data-placement="right">Text</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td property="rdfs:comment">
+                                    The name of the Document.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="Document.url"
+                                typeof="rdf:Property"
+                                resource="https://www.greendigitalcoalition.eu/model/url"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20url%20in%20Document&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Document.url" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="https://www.greendigitalcoalition.eu/model/url"
+                                           data-toggle="tooltip"
+                                           data-content="https://www.greendigitalcoalition.eu/model/url"
+                                           data-placement="right">
+                                        url</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#URI" data-placement="right">URI</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td property="rdfs:comment">
+                                    A web page of the Document.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
         
     </div>
 </section>
@@ -2659,7 +2899,7 @@ They are included in the Application Profile because they form the range of prop
                                 <td>
                                     
                                         
-                                            <a href="#Document" data-placement="right">Document</a>
+                                            <a href="#URI" data-placement="right">URI</a>
                                         
                                     
                                 </td>
@@ -2929,7 +3169,7 @@ They are included in the Application Profile because they form the range of prop
                                     1
                                 </td>
                                 <td property="rdfs:comment">
-                                    The title of the document.
+                                    The title of the methodology.
                                 </td>
                                 <td property="skos:scopeNote">
                                     
@@ -2949,7 +3189,7 @@ They are included in the Application Profile because they form the range of prop
                         
                             <tr id="Methodology.url"
                                 typeof="rdf:Property"
-                                resource="http://xmlns.com/foaf/0.1/page"
+                                resource="https://www.greendigitalcoalition.eu/model/url"
                                 class="class mandatory">
                                 <td>
 				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20url%20in%20Methodology&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Methodology.url" target="_blank" rel="noopener noreferrer" >
@@ -2958,16 +3198,16 @@ They are included in the Application Profile because they form the range of prop
                                     </a>
                                 </td>
                                 <td>
-                                        <a href="http://xmlns.com/foaf/0.1/page"
+                                        <a href="https://www.greendigitalcoalition.eu/model/url"
                                            data-toggle="tooltip"
-                                           data-content="http://xmlns.com/foaf/0.1/page"
+                                           data-content="https://www.greendigitalcoalition.eu/model/url"
                                            data-placement="right">
                                         url</a>
                                 </td>
                                 <td>
                                     
                                         
-                                            <a href="#Document" data-placement="right">Document</a>
+                                            <a href="#URI" data-placement="right">URI</a>
                                         
                                     
                                 </td>
@@ -2979,6 +3219,235 @@ They are included in the Application Profile because they form the range of prop
                                 </td>
                                 <td property="skos:scopeNote">
                                     
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        
+    </div>
+</section>
+
+
+
+
+
+   
+        <section>
+            <h3 id="OnlineAccount">
+                <a href="http://xmlns.com/foaf/0.1/OnlineAccount"
+                   data-toggle="tooltip"
+                   data-content="http://xmlns.com/foaf/0.1/OnlineAccount"
+                   data-placement="right">OnlineAccount</a>
+
+            </h3>
+	        <!-- XXX an image in the h3 will break the rendering of the Table Of Contents of Respec -->
+		<!-- outcomment github feedback possibility
+                <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20Onlineaccount&body=Explain%20your%20issue"}}>
+                   <img src="html/callout.png" loading="lazy" alt="(create issue)" width="20" height="20"/>
+		</a>
+		-->
+            <dl>
+                <dt>
+                    Definition
+                </dt>
+                <dd>
+                    A individual human being who may be dead or alive, but not imaginary.
+                </dd>
+                
+                
+                    <dt>
+                        Usage Note
+                    </dt>
+                    <dd>
+                        The fact that a person in the context of Core Person Vocabulary cannot be imaginary makes person:Person a subclass of foaf:Person which cover imaginary characters as well as real people. The Person Class is a subclass of the more general <a href="https://semiceu.github.io/Core-Person-Vocabulary/releases/2.1.1/#Agent">'Agent' class</a>.
+                    </dd>
+                
+                
+                    <dt>
+                        Properties
+                    </dt>
+                    
+                        <dd>
+                            For this entity the following properties are defined: <a href="#OnlineAccount.hasemail">has email</a>
+                            , <a href="#OnlineAccount.hashedpassword">hashed password</a>
+                            , <a href="#OnlineAccount.role">role</a>
+                            .
+                    </dd>
+                
+            </dl>
+        </div>
+        
+            <div class="u-table-overflow">
+                <table class="data-table simple" id="table-mandatory-classes">
+                    <thead>
+                        <tr class="data-table__header">
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                            </th>
+                            <th class="data-table__header-title--sortable data-table__header-title--sortable-active" style="width:14%">
+                                Property
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:14%">
+                                Range
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:6%">
+                                Card
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Definition 
+                            </th>
+                            <th class="data-table__header-title--sortable" style="width:30%">
+                                Usage
+                            </th>
+			    <!--
+                            <th class="data-table__header-title--sortable" style="width:3%">
+                                Codelist
+                            </th>
+				-->
+                            <th class="data-table__header-title--sortable" style="width:5%">
+                                REF
+                            </th>
+			    
+                        </tr>
+                    </thead>
+                    <tbody class="supertype">
+                        
+                            <tr id="OnlineAccount.hasemail"
+                                typeof="rdf:Property"
+                                resource="http://data.europa.eu/m8g/email"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20has email%20in%20OnlineAccount&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23OnlineAccount.hasemail" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="http://data.europa.eu/m8g/email"
+                                           data-toggle="tooltip"
+                                           data-content="http://data.europa.eu/m8g/email"
+                                           data-placement="right">
+                                        has email</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#String" data-placement="right">String</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td property="rdfs:comment">
+                                    The email of the online account
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="OnlineAccount.hashedpassword"
+                                typeof="rdf:Property"
+                                resource="https://www.greendigitalcoalition.eu/model/hashedPassword"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20hashed password%20in%20OnlineAccount&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23OnlineAccount.hashedpassword" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="https://www.greendigitalcoalition.eu/model/hashedPassword"
+                                           data-toggle="tooltip"
+                                           data-content="https://www.greendigitalcoalition.eu/model/hashedPassword"
+                                           data-placement="right">
+                                        hashed password</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#String" data-placement="right">String</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td property="rdfs:comment">
+                                    The hashed password of the OnlineAccount.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    
+                                </td>
+				<!--
+                                <td>
+                                    
+                                </td>
+				-->
+                                <td>
+                                    
+                                    
+                                        No references available.
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr id="OnlineAccount.role"
+                                typeof="rdf:Property"
+                                resource="http://purl.org/dc/terms/type"
+                                class="class mandatory">
+                                <td>
+				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20role%20in%20OnlineAccount&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23OnlineAccount.role" target="_blank" rel="noopener noreferrer" >
+					    <!--                                        <i class="icon">[o]</i> -->
+                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
+                                    </a>
+                                </td>
+                                <td>
+                                        <a href="http://purl.org/dc/terms/type"
+                                           data-toggle="tooltip"
+                                           data-content="http://purl.org/dc/terms/type"
+                                           data-placement="right">
+                                        role</a>
+                                </td>
+                                <td>
+                                    
+                                        
+                                            <a href="#Code" data-placement="right">Code</a>
+                                        
+                                    
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td property="rdfs:comment">
+                                    The role type of the OnlineAccount.
+                                </td>
+                                <td property="skos:scopeNote">
+                                    The recommended code list is <a hred="#oa-role">OnlineAccount - Role</a>.
                                 </td>
 				<!--
                                 <td>
@@ -3038,7 +3507,6 @@ They are included in the Application Profile because they form the range of prop
                             , <a href="#Organization.description">description</a>
                             , <a href="#Organization.name">name</a>
                             , <a href="#Organization.sector">sector</a>
-                            , <a href="#Organization.subsector">sub sector</a>
                             , <a href="#Organization.type">type</a>
                             , <a href="#Organization.websiteurl">website url</a>
                             .
@@ -3250,53 +3718,7 @@ They are included in the Application Profile because they form the range of prop
                                     The industry or sector the Organization is intended for.
                                 </td>
                                 <td property="skos:scopeNote">
-                                    
-                                </td>
-				<!--
-                                <td>
-                                    
-                                </td>
-				-->
-                                <td>
-                                    
-                                    
-                                        No references available.
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr id="Organization.subsector"
-                                typeof="rdf:Property"
-                                resource="https://www.greendigitalcoalition.eu/model/subSector"
-                                class="class mandatory">
-                                <td>
-				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20sub sector%20in%20Organization&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Organization.subsector" target="_blank" rel="noopener noreferrer" >
-					    <!--                                        <i class="icon">[o]</i> -->
-                                        <img src="html/callout.png" loading="lazy" alt="[o]" width="100" height="100"/>
-                                    </a>
-                                </td>
-                                <td>
-                                        <a href="https://www.greendigitalcoalition.eu/model/subSector"
-                                           data-toggle="tooltip"
-                                           data-content="https://www.greendigitalcoalition.eu/model/subSector"
-                                           data-placement="right">
-                                        sub sector</a>
-                                </td>
-                                <td>
-                                    
-                                        
-                                            <a href="#Code" data-placement="right">Code</a>
-                                        
-                                    
-                                </td>
-                                <td>
-                                    0..*
-                                </td>
-                                <td property="rdfs:comment">
-                                    The sub sector the Organization is intended for.
-                                </td>
-                                <td property="skos:scopeNote">
-                                    
+                                    The recommended code list is <a hred="#org-sector">Organization - Sector</a>.
                                 </td>
 				<!--
                                 <td>
@@ -3342,7 +3764,7 @@ They are included in the Application Profile because they form the range of prop
                                     The nature of the Organization.
                                 </td>
                                 <td property="skos:scopeNote">
-                                    The values to be used for this property are the URIs of the concepts in the Publications Office <a href="https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/organization-type">Organization Type</a>, <a href="https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/corporate-body-classification">Corporate Body classification</a> code list or <a href="http://purl.org/adms/publishertype/">Publisher type</a> code list.
+                                    The recommended code list is <a hred="#org-type">Organization - Type</a>.
                                 </td>
 				<!--
                                 <td>
@@ -3359,7 +3781,7 @@ They are included in the Application Profile because they form the range of prop
                         
                             <tr id="Organization.websiteurl"
                                 typeof="rdf:Property"
-                                resource="http://xmlns.com/foaf/0.1/page"
+                                resource="https://www.greendigitalcoalition.eu/model/url"
                                 class="class mandatory">
                                 <td>
 				    <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20website url%20in%20Organization&body=Explain%20your%20issue%20for%20https://semiceu.github.io/EGDC_CaseStudy/releases/1.0.0%23Organization.websiteurl" target="_blank" rel="noopener noreferrer" >
@@ -3368,16 +3790,16 @@ They are included in the Application Profile because they form the range of prop
                                     </a>
                                 </td>
                                 <td>
-                                        <a href="http://xmlns.com/foaf/0.1/page"
+                                        <a href="https://www.greendigitalcoalition.eu/model/url"
                                            data-toggle="tooltip"
-                                           data-content="http://xmlns.com/foaf/0.1/page"
+                                           data-content="https://www.greendigitalcoalition.eu/model/url"
                                            data-placement="right">
                                         website url</a>
                                 </td>
                                 <td>
                                     
                                         
-                                            <a href="#Document" data-placement="right">Document</a>
+                                            <a href="#URI" data-placement="right">URI</a>
                                         
                                     
                                 </td>
@@ -3518,6 +3940,22 @@ They are included in the Application Profile because they form the range of prop
 		</td><td>
                     The text data type is a combination of a string and a language identifier.
 		</td></tr>
+		<tr><td>
+                   <a href="https://github.com/SEMICeu/EGDC_CaseStudy/issues/new?title=Issue%20for%20Uri&body=Explain%20your%20issue"}}>
+                     <img src="html/callout.png" loading="lazy" alt="(create issue)" width="50" height="50"/>
+		   </a>
+		</td><td>
+                
+                    <div id="URI">
+                        <a href="http://www.w3.org/2001/XMLSchema#anyURI"
+                           data-toggle="tooltip"
+                           data-content="http://www.w3.org/2001/XMLSchema#anyURI"
+                           data-placement="right">URI</a>
+                    </div>
+                
+		</td><td>
+                    anyURI represents a Uniform Resource Identifier Reference (URI).
+		</td></tr>
             </tbody>
 	</table>
 
@@ -3593,6 +4031,17 @@ They are included in the Application Profile because they form the range of prop
 	</tbody>
 </table>
 
+<h3 id="cs-status">Case Study - Status</h3> 
+<table id="table-cs-status" class="simple">
+	<thead><tr><th>URI</th><th>Identifier</th><th>Label</th></tr></thead>
+	<tbody>
+		<tr><td>egdc-cl:status/declined</td><td><code>declined</code></td><td><code>Declined</code></td></tr>
+		<tr><td>egdc-cl:status/draft</td><td><code>draft</code></td><td><code>Draft</code></td></tr>
+		<tr><td>egdc-cl:status/pending-approval</td><td><code>pending-approval</code></td><td><code>Pending Approval</code></td></tr>
+		<tr><td>egdc-cl:status/published</td><td><code>published</code></td><td><code>Published</code></td></tr>
+	</tbody>
+</table>
+
 <h3 id="cs-technology">Case Study - Technology</h3> 
 <table id="table-cs-technology" class="simple">
 	<thead><tr><th>URI</th><th>Identifier</th><th>Label</th></tr></thead>
@@ -3605,6 +4054,7 @@ They are included in the Application Profile because they form the range of prop
 		<tr><td>egdc-cl:technology/cloud</td><td><code>cloud</code></td><td><code>Cloud Computing</code></td></tr>
 		<tr><td>egdc-cl:technology/digital-twin</td><td><code>digital-twin</code></td><td><code>Digital Twin</code></td></tr>
 		<tr><td>egdc-cl:technology/fleet-management</td><td><code>fleet-management</code></td><td><code>Fleet Management System</code></td></tr>
+		<tr><td>egdc-cl:technology/iot</td><td><code>iot</code></td><td><code>IoT</code></td></tr>
 		<tr><td>egdc-cl:technology/robotics</td><td><code>robotics</code></td><td><code>Robotics</code></td></tr>
 	</tbody>
 </table>
@@ -3615,6 +4065,16 @@ They are included in the Application Profile because they form the range of prop
 	<tbody>
 		<tr><td>egdc-cl:calculation/ex-ante</td><td><code>ex-ante</code></td><td><code>Ex Ante</code></td></tr>
 		<tr><td>egdc-cl:calculation/ex-post</td><td><code>ex-post</code></td><td><code>Ex Post</code></td></tr>
+	</tbody>
+</table>
+
+<h3 id="oa-role">OnlineAccount - Role</h3> 
+<table id="table-oa-role" class="simple">
+	<thead><tr><th>URI</th><th>Identifier</th><th>Label</th></tr></thead>
+	<tbody>
+		<tr><td>egdc-cl:role/admin</td><td><code>admin</code></td><td><code>Admin</code></td></tr>
+		<tr><td>egdc-cl:role/custodian</td><td><code>custodian</code></td><td><code>Custodian</code></td></tr>
+		<tr><td>egdc-cl:role/data-owner</td><td><code>data-owner</code></td><td><code>Data Owner</code></td></tr>
 	</tbody>
 </table>
 
@@ -3650,6 +4110,7 @@ They are included in the Application Profile because they form the range of prop
     </h2> 
 	<div class="region region--no-space-top" id="examples">													   
         
+<h3 class="h3 examples" id="example-rdf_casestudy">Example Case Study</h3>
 
 	</div>
 </section>
@@ -3787,55 +4248,6 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 					
 						
 							<tr>
-								<td><a href="#"></a></td>
-								<td><div class="shorten">http://www.w3.org/ns/person#Person</div></td>
-								<td>Mandatory</td>
-								<td><a href="#undefined.contactpoint">contact point </a></td>
-								<td><div class="shorten">http://data.europa.eu/m8g/contactPoint</div></td>
-							</tr>
-						
-					
-						
-					
-						
-					
-					
-						
-					
-						
-					
-						
-					
-					
-						
-					
-						
-							<tr>
-								<td><a href="#"></a></td>
-								<td><div class="shorten">http://www.w3.org/ns/person#Person</div></td>
-								<td></td>
-								<td><a href="#undefined.familyname">family name </a></td>
-								<td><div class="shorten">http://xmlns.com/foaf/0.1/familyName</div></td>
-							</tr>
-						
-					
-						
-							<tr>
-								<td><a href="#"></a></td>
-								<td><div class="shorten">http://www.w3.org/ns/person#Person</div></td>
-								<td></td>
-								<td><a href="#undefined.givenname">given name </a></td>
-								<td><div class="shorten">http://xmlns.com/foaf/0.1/givenName</div></td>
-							</tr>
-						
-					
-				
-			</tr>
-		
-				
-					
-						
-							<tr>
 								<td><a href="#Address">Address</a></td>
 								<td><div class="shorten">http://www.w3.org/ns/locn#Address</div></td>
 								<td>Mandatory</td>
@@ -3870,6 +4282,18 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 				
 					
 						
+					
+						
+							<tr>
+								<td><a href="#Benefit">Benefit</a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/Benefit</div></td>
+								<td>Mandatory</td>
+								<td><a href="#Benefit.name">name </a></td>
+								<td><div class="shorten">http://purl.org/dc/terms/title</div></td>
+							</tr>
+						
+					
+						
 							<tr>
 								<td><a href="#Benefit">Benefit</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/Benefit</div></td>
@@ -3877,8 +4301,6 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 								<td><a href="#Benefit.type">type </a></td>
 								<td><div class="shorten">http://purl.org/dc/terms/type</div></td>
 							</tr>
-						
-					
 						
 					
 						
@@ -3910,17 +4332,21 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 					
 						
 					
-					
 						
+					
 					
 						
 							<tr>
 								<td><a href="#Benefit">Benefit</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/Benefit</div></td>
 								<td></td>
-								<td><a href="#Benefit.type">type </a></td>
-								<td><div class="shorten">http://purl.org/dc/terms/type</div></td>
+								<td><a href="#Benefit.functionalunit">functional unit </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/functionalUnit</div></td>
 							</tr>
+						
+					
+						
+					
 						
 					
 						
@@ -3943,27 +4369,19 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 						
 					
 						
-							<tr>
-								<td><a href="#CaseStudy">Case Study</a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
-								<td>Mandatory</td>
-								<td><a href="#CaseStudy.created">created </a></td>
-								<td><div class="shorten">http://purl.org/dc/terms/created</div></td>
-							</tr>
-						
-					
-						
-					
-						
 					
 						
 							<tr>
 								<td><a href="#CaseStudy">Case Study</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
 								<td>Mandatory</td>
-								<td><a href="#CaseStudy.hasbenefit">has benefit </a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/hasBenefit</div></td>
+								<td><a href="#CaseStudy.creator">creator </a></td>
+								<td><div class="shorten">http://purl.org/dc/terms/creator</div></td>
 							</tr>
+						
+					
+						
+					
 						
 					
 						
@@ -3975,6 +4393,18 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 								<td>Mandatory</td>
 								<td><a href="#CaseStudy.hasdataset">has dataset </a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/hasDataset</div></td>
+							</tr>
+						
+					
+						
+					
+						
+							<tr>
+								<td><a href="#CaseStudy">Case Study</a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
+								<td>Mandatory</td>
+								<td><a href="#CaseStudy.hasenvironmentalbenefit">has environmental benefit </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/hasEnvironmentalBenefit</div></td>
 							</tr>
 						
 					
@@ -3996,7 +4426,7 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
 								<td>Mandatory</td>
 								<td><a href="#CaseStudy.isprovidedby">is provided by </a></td>
-								<td><div class="shorten">http://purl.org/dc/terms/creator</div></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/isProvidedBy</div></td>
 							</tr>
 						
 					
@@ -4017,118 +4447,100 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 						
 					
 						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
 							<tr>
 								<td><a href="#CaseStudy">Case Study</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
 								<td>Mandatory</td>
-								<td><a href="#CaseStudy.longdescription">long description </a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/longDescription</div></td>
+								<td><a href="#CaseStudy.status">status </a></td>
+								<td><div class="shorten">http://www.w3.org/ns/adms#status</div></td>
 							</tr>
 						
 					
 						
+					
+						
+					
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+					
+						
+					
+						
 							<tr>
 								<td><a href="#CaseStudy">Case Study</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
-								<td>Mandatory</td>
-								<td><a href="#CaseStudy.problemsolved">problem solved </a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/problemSolved</div></td>
+								<td>Optional</td>
+								<td><a href="#CaseStudy.created">created </a></td>
+								<td><div class="shorten">http://purl.org/dc/terms/created</div></td>
 							</tr>
 						
 					
 						
-							<tr>
-								<td><a href="#CaseStudy">Case Study</a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
-								<td>Mandatory</td>
-								<td><a href="#CaseStudy.shortdescription">short description </a></td>
-								<td><div class="shorten">http://purl.org/dc/terms/description</div></td>
-							</tr>
-						
 					
 						
 							<tr>
 								<td><a href="#CaseStudy">Case Study</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
-								<td>Mandatory</td>
-								<td><a href="#CaseStudy.technology">technology </a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/technology</div></td>
-							</tr>
-						
-					
-						
-							<tr>
-								<td><a href="#CaseStudy">Case Study</a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
-								<td>Mandatory</td>
-								<td><a href="#CaseStudy.title">title </a></td>
-								<td><div class="shorten">http://purl.org/dc/terms/title</div></td>
-							</tr>
-						
-					
-						
-							<tr>
-								<td><a href="#CaseStudy">Case Study</a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
-								<td>Mandatory</td>
-								<td><a href="#CaseStudy.typeofcalculation">type of calculation </a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/typeOfCalculation</div></td>
-							</tr>
-						
-					
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-					
-						
-					
-						
-					
-						
-							<tr>
-								<td><a href="#CaseStudy">Case Study</a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
-								<td></td>
-								<td><a href="#CaseStudy.creator">creator </a></td>
-								<td><div class="shorten">http://purl.org/dc/terms/creator</div></td>
+								<td>Optional</td>
+								<td><a href="#CaseStudy.fundingprogrammeurl">funding programme url </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/fundingProgrammeUrl</div></td>
 							</tr>
 						
 					
@@ -4143,14 +4555,24 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 						
 					
 						
-					
-						
 							<tr>
 								<td><a href="#CaseStudy">Case Study</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
 								<td>Optional</td>
 								<td><a href="#CaseStudy.hasbenefit">has benefit </a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/hasBenefit</div></td>
+							</tr>
+						
+					
+						
+					
+						
+							<tr>
+								<td><a href="#CaseStudy">Case Study</a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
+								<td></td>
+								<td><a href="#CaseStudy.hasdocument">has document </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/hasDocument</div></td>
 							</tr>
 						
 					
@@ -4184,7 +4606,7 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 							<tr>
 								<td><a href="#CaseStudy">Case Study</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
-								<td></td>
+								<td>Optional</td>
 								<td><a href="#CaseStudy.issuedate">issue date </a></td>
 								<td><div class="shorten">http://purl.org/dc/terms/issued</div></td>
 							</tr>
@@ -4194,7 +4616,7 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 							<tr>
 								<td><a href="#CaseStudy">Case Study</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
-								<td></td>
+								<td>Optional</td>
 								<td><a href="#CaseStudy.language">language </a></td>
 								<td><div class="shorten">http://purl.org/dc/terms/language</div></td>
 							</tr>
@@ -4203,15 +4625,75 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 						
 					
 						
+							<tr>
+								<td><a href="#CaseStudy">Case Study</a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
+								<td>Optional</td>
+								<td><a href="#CaseStudy.longdescription">long description </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/longDescription</div></td>
+							</tr>
+						
 					
+						
+							<tr>
+								<td><a href="#CaseStudy">Case Study</a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
+								<td>Optional</td>
+								<td><a href="#CaseStudy.name">name </a></td>
+								<td><div class="shorten">http://purl.org/dc/terms/title</div></td>
+							</tr>
+						
+					
+						
+							<tr>
+								<td><a href="#CaseStudy">Case Study</a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
+								<td>Optional</td>
+								<td><a href="#CaseStudy.problemsolved">problem solved </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/problemSolved</div></td>
+							</tr>
+						
+					
+						
+							<tr>
+								<td><a href="#CaseStudy">Case Study</a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
+								<td>Optional</td>
+								<td><a href="#CaseStudy.rejectioncomment">rejection comment </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/rejectionComment</div></td>
+							</tr>
+						
+					
+						
+							<tr>
+								<td><a href="#CaseStudy">Case Study</a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
+								<td>Optional</td>
+								<td><a href="#CaseStudy.shortdescription">short description </a></td>
+								<td><div class="shorten">http://purl.org/dc/terms/description</div></td>
+							</tr>
 						
 					
 						
 					
 						
-					
+							<tr>
+								<td><a href="#CaseStudy">Case Study</a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
+								<td>Optional</td>
+								<td><a href="#CaseStudy.technology">technology </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/technology</div></td>
+							</tr>
 						
 					
+						
+							<tr>
+								<td><a href="#CaseStudy">Case Study</a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/CaseStudy</div></td>
+								<td>Optional</td>
+								<td><a href="#CaseStudy.typeofcalculation">type of calculation </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/typeOfCalculation</div></td>
+							</tr>
 						
 					
 				
@@ -4243,7 +4725,7 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 							<tr>
 								<td><a href="#ContactPoint">Contact Point</a></td>
 								<td><div class="shorten">http://data.europa.eu/m8g/ContactPoint</div></td>
-								<td></td>
+								<td>Optional</td>
 								<td><a href="#ContactPoint.name">name </a></td>
 								<td><div class="shorten">http://purl.org/dc/terms/title</div></td>
 							</tr>
@@ -4280,9 +4762,9 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 							<tr>
 								<td><a href="#Dataset">Dataset</a></td>
 								<td><div class="shorten">http://www.w3.org/ns/dcat#Dataset</div></td>
-								<td></td>
+								<td>Optional</td>
 								<td><a href="#Dataset.landingpage">landing page </a></td>
-								<td><div class="shorten">http://xmlns.com/foaf/0.1/page</div></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/url</div></td>
 							</tr>
 						
 					
@@ -4290,7 +4772,7 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 							<tr>
 								<td><a href="#Dataset">Dataset</a></td>
 								<td><div class="shorten">http://www.w3.org/ns/dcat#Dataset</div></td>
-								<td></td>
+								<td>Optional</td>
 								<td><a href="#Dataset.language">language </a></td>
 								<td><div class="shorten">http://purl.org/dc/terms/language</div></td>
 							</tr>
@@ -4302,13 +4784,65 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 			</tr>
 		
 				
-					<tr>
-						<td><a href="#Document">Document</a></td>
-						<td><div class="shorten">http://xmlns.com/foaf/0.1/Document</div></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
+					
+						
+					
+						
+					
+						
+							<tr>
+								<td><a href="#Document">Document</a></td>
+								<td><div class="shorten">http://xmlns.com/foaf/0.1/Document</div></td>
+								<td>Mandatory</td>
+								<td><a href="#Document.name">name </a></td>
+								<td><div class="shorten">http://purl.org/dc/terms/title</div></td>
+							</tr>
+						
+					
+						
+							<tr>
+								<td><a href="#Document">Document</a></td>
+								<td><div class="shorten">http://xmlns.com/foaf/0.1/Document</div></td>
+								<td>Mandatory</td>
+								<td><a href="#Document.url">url </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/url</div></td>
+							</tr>
+						
+					
+					
+						
+					
+						
+					
+						
+					
+						
+					
+					
+						
+							<tr>
+								<td><a href="#Document">Document</a></td>
+								<td><div class="shorten">http://xmlns.com/foaf/0.1/Document</div></td>
+								<td>Optional</td>
+								<td><a href="#Document.description">description </a></td>
+								<td><div class="shorten">http://purl.org/dc/terms/description</div></td>
+							</tr>
+						
+					
+						
+							<tr>
+								<td><a href="#Document">Document</a></td>
+								<td><div class="shorten">http://xmlns.com/foaf/0.1/Document</div></td>
+								<td>Optional</td>
+								<td><a href="#Document.language">language </a></td>
+								<td><div class="shorten">http://purl.org/dc/terms/language</div></td>
+							</tr>
+						
+					
+						
+					
+						
+					
 				
 			</tr>
 		
@@ -4408,7 +4942,7 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 							<tr>
 								<td><a href="#Methodology">Methodology</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/Methodology</div></td>
-								<td></td>
+								<td>Optional</td>
 								<td><a href="#Methodology.language">language </a></td>
 								<td><div class="shorten">http://purl.org/dc/terms/language</div></td>
 							</tr>
@@ -4420,10 +4954,59 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 							<tr>
 								<td><a href="#Methodology">Methodology</a></td>
 								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/Methodology</div></td>
-								<td></td>
+								<td>Optional</td>
 								<td><a href="#Methodology.url">url </a></td>
-								<td><div class="shorten">http://xmlns.com/foaf/0.1/page</div></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/url</div></td>
 							</tr>
+						
+					
+				
+			</tr>
+		
+				
+					
+						
+							<tr>
+								<td><a href="#OnlineAccount">OnlineAccount</a></td>
+								<td><div class="shorten">http://xmlns.com/foaf/0.1/OnlineAccount</div></td>
+								<td>Mandatory</td>
+								<td><a href="#OnlineAccount.hasemail">has email </a></td>
+								<td><div class="shorten">http://data.europa.eu/m8g/email</div></td>
+							</tr>
+						
+					
+						
+							<tr>
+								<td><a href="#OnlineAccount">OnlineAccount</a></td>
+								<td><div class="shorten">http://xmlns.com/foaf/0.1/OnlineAccount</div></td>
+								<td>Mandatory</td>
+								<td><a href="#OnlineAccount.hashedpassword">hashed password </a></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/hashedPassword</div></td>
+							</tr>
+						
+					
+						
+							<tr>
+								<td><a href="#OnlineAccount">OnlineAccount</a></td>
+								<td><div class="shorten">http://xmlns.com/foaf/0.1/OnlineAccount</div></td>
+								<td>Mandatory</td>
+								<td><a href="#OnlineAccount.role">role </a></td>
+								<td><div class="shorten">http://purl.org/dc/terms/type</div></td>
+							</tr>
+						
+					
+					
+						
+					
+						
+					
+						
+					
+					
+						
+					
+						
+					
 						
 					
 				
@@ -4459,10 +5042,6 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 					
 						
 					
-						
-					
-					
-						
 					
 						
 					
@@ -4506,16 +5085,6 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 								<td><a href="#Organization">Organization</a></td>
 								<td><div class="shorten">http://www.w3.org/ns/org#Organization</div></td>
 								<td>Optional</td>
-								<td><a href="#Organization.subsector">sub sector </a></td>
-								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/subSector</div></td>
-							</tr>
-						
-					
-						
-							<tr>
-								<td><a href="#Organization">Organization</a></td>
-								<td><div class="shorten">http://www.w3.org/ns/org#Organization</div></td>
-								<td>Optional</td>
 								<td><a href="#Organization.type">type </a></td>
 								<td><div class="shorten">http://purl.org/dc/terms/type</div></td>
 							</tr>
@@ -4525,9 +5094,9 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 							<tr>
 								<td><a href="#Organization">Organization</a></td>
 								<td><div class="shorten">http://www.w3.org/ns/org#Organization</div></td>
-								<td></td>
+								<td>Optional</td>
 								<td><a href="#Organization.websiteurl">website url </a></td>
-								<td><div class="shorten">http://xmlns.com/foaf/0.1/page</div></td>
+								<td><div class="shorten">https://www.greendigitalcoalition.eu/model/url</div></td>
 							</tr>
 						
 					
@@ -4558,6 +5127,7 @@ The properties are indicated as <it>mandatory, recommended, optional</it> and <i
 {'pref':'foaf:', 'ns': 'http://xmlns.com/foaf/0.1/'},
 {'pref':'frapo:', 'ns': 'http://purl.org/cerif/frapo/'},
 {'pref':'it6:', 'ns': 'http://data.europa.eu/it6/'},
+{'pref':'locn', 'ns': 'http://www.w3.org/ns/locn'},
 {'pref':'lpwcc:', 'ns': 'https://linkedpaperswithcode.com/class/'},
 {'pref':'lpwc:', 'ns': 'https://linkedpaperswithcode.com/property/'},
 {'pref':'mls:', 'ns': 'http://www.w3.org/ns/mls#'},
